@@ -21,8 +21,25 @@ $(document).ready(function () {
         return randomNum;
     }
 
+    function refreshCrystalValues() {
+        var newCrystalValue = $(".blueCrystal");
+        var CrystalValue = refreshCrystalValue();
+        newCrystalValue.attr("data-crystalValue",CrystalValue);
+
+        newCrystalValue = $(".redCrystal");
+        CrystalValue = refreshCrystalValue();
+        newCrystalValue.attr("data-crystalValue",CrystalValue);
+
+        newCrystalValue = $(".purpCrystal");
+        CrystalValue = refreshCrystalValue();
+        newCrystalValue.attr("data-crystalValue",CrystalValue);
+
+        newCrystalValue = $(".yellowCrystal");
+        CrystalValue = refreshCrystalValue();
+        newCrystalValue.attr("data-crystalValue",CrystalValue);
+    }
+
     function createCrystals() {
-        $("#crystalContainer").empty();
         for (var i = 0; i < 4; i++) {
             var CrystalValue = refreshCrystalValue()
             var imageCrystal = $("<img>");
@@ -31,15 +48,19 @@ $(document).ready(function () {
             console.log("value assigned to crystal: " + CrystalValue);
             if (i === 0) {
                 imageCrystal.attr("src", "./assets/images/Blue.png");
+                imageCrystal.addClass("blueCrystal");
                 imageCrystal.attr("width", "20%");
             } else if (i === 1) {
                 imageCrystal.attr("src", "./assets/images/Red.png");
+                imageCrystal.addClass("redCrystal");
                 imageCrystal.attr("width", "20%");
             } else if (i === 2) {
                 imageCrystal.attr("src", "./assets/images/Purp.png");
+                imageCrystal.addClass("purpCrystal");
                 imageCrystal.attr("width", "20%");
             } else {
                 imageCrystal.attr("src", "./assets/images/Yellow.png");
+                imageCrystal.addClass("yellowCrystal");
                 imageCrystal.attr("width", "20%");
             }
             console.log(imageCrystal);
@@ -54,7 +75,7 @@ $(document).ready(function () {
         var crystalVal = ($(this).attr("data-crystalValue"));
         var crystalVal = parseInt(crystalVal);
         accumalatedScore += crystalVal;
-        console.log(accumalatedScore);
+        console.log("this is your accumulated score: " + accumalatedScore);
         // targetNumText.text(accumalatedScore);
         playerNumText.text(accumalatedScore);
         if (accumalatedScore === TargetValue) {
@@ -62,15 +83,18 @@ $(document).ready(function () {
             winNumText.text("Wins: " + wins);
             accumalatedScore = 0;
             playerNumText.text(accumalatedScore);
-            createCrystals();
-            targetNumText.text(refreshTargetValue());
+            TargetValue = refreshTargetValue();
+            targetNumText.text(TargetValue);
+            refreshCrystalValues();
         } else if (accumalatedScore >= TargetValue) {
             losses++;
             loseNumText.text("Losses: " + losses);
             accumalatedScore = 0;
             playerNumText.text(accumalatedScore);
-            createCrystals();
-            targetNumText.text(refreshTargetValue());
+            TargetValue = refreshTargetValue();
+            targetNumText.text(TargetValue);
+            refreshCrystalValues();
+            
 
         }
 
