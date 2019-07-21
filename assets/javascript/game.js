@@ -24,19 +24,19 @@ $(document).ready(function () {
     function refreshCrystalValues() {
         var newCrystalValue = $(".blueCrystal");
         var CrystalValue = refreshCrystalValue();
-        newCrystalValue.attr("data-crystalValue",CrystalValue);
+        newCrystalValue.attr("data-crystalValue", CrystalValue);
 
         newCrystalValue = $(".redCrystal");
         CrystalValue = refreshCrystalValue();
-        newCrystalValue.attr("data-crystalValue",CrystalValue);
+        newCrystalValue.attr("data-crystalValue", CrystalValue);
 
         newCrystalValue = $(".purpCrystal");
         CrystalValue = refreshCrystalValue();
-        newCrystalValue.attr("data-crystalValue",CrystalValue);
+        newCrystalValue.attr("data-crystalValue", CrystalValue);
 
         newCrystalValue = $(".yellowCrystal");
         CrystalValue = refreshCrystalValue();
-        newCrystalValue.attr("data-crystalValue",CrystalValue);
+        newCrystalValue.attr("data-crystalValue", CrystalValue);
     }
 
     function createCrystals() {
@@ -94,9 +94,22 @@ $(document).ready(function () {
             TargetValue = refreshTargetValue();
             targetNumText.text(TargetValue);
             refreshCrystalValues();
-            
+
 
         }
+
+    });
+
+    $(".restart").on("click", function () {
+        wins = 0;
+        losses = 0;
+        winNumText.text("Wins: " + wins);
+        loseNumText.text("Losses: " + losses);
+        accumalatedScore = 0;
+        playerNumText.text(accumalatedScore);
+        TargetValue = refreshTargetValue();
+        targetNumText.text(TargetValue);
+        refreshCrystalValues();
 
     });
 
