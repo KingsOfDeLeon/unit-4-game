@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>unit-4-game</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/javascript/game.js"></script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
@@ -25,27 +26,27 @@
                     your total score.</p>
                 <p>You win the game by matching your total score to a random number, you lose the game if your total
                     score exceeds the random number.</p>
-                <p>The value of each srystal is hidden from you until you click on it.</p>
+                <p>The value of each crystal is hidden from you until you click on it.</p>
                 <p>Each time when the game starts, the game will change the values of each crystal</p>
             </div>
         </div>
         <br>
         <div class="row">
-            <div id="targetNum" class="col-sm-3 bg-secondary">
-                <h1>0</h1>
+            <div class="col-sm-3 bg-secondary">
+                <h1 id="targetNum">0</h1>
             </div>
             <div id="scoreBoard" class="col-sm-1 bg-primary">
-                <p>Wins: 0</p>
-                <p>Losses: 0</p>
+                <p id="winCount">Wins: 0</p>
+                <p id="lossCount">Losses: 0</p>
             </div>
         </div>
         <br>
         <div class="row">
             <div id="crystalContainer" class="col-sm-6">
-                <img src="./assets/images/Blue.png" width="20%">
-                <img src="./assets/images/Red.png" width="20%">
-                <img src="./assets/images/Purp.png" width="20%">
-                <img src="./assets/images/Yellow.png" width="20%">
+                <!-- <img id="blueCrystal" class="crystalImage" src="./assets/images/Blue.png" width="20%">
+                <img id="redCrystal" class="crystalImage" src="./assets/images/Red.png" width="20%">
+                <img id="purpCrystal" class="crystalImage" src="./assets/images/Purp.png" width="20%">
+                <img id="yellowCrystal" class="crystalImage" src="./assets/images/Yellow.png" width="20%"> -->
             </div>
         </div>
         <br>
@@ -57,7 +58,7 @@
         <br>
         <div class="row">
             <div class="col-sm-3 bg-info">
-                <h1>0</h1>
+                <h1 id="playerNum">0</h1>
             </div>
         </div>
     </div>
